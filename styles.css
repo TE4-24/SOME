@@ -1,0 +1,145 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh; 
+    font-family: Arial, sans-serif;
+    background-image: linear-gradient(45deg, #810636, #cd15e6);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+    padding: 20px;
+}
+a {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+.delete {
+    background-image: url('assets/delete.svg');
+    background-size: cover;
+    width: 36px;
+    height: 36px;
+    border: none;
+    cursor: pointer;
+    border-radius: 3px;
+}
+.buttonContainer {
+    display: flex;
+    gap: 10px;
+}
+img {
+    max-width: 100%;
+    max-height: 50%;
+    border-radius: 10px;
+}
+a img {
+    width: 30px;
+    height: 30px;
+}
+.main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; 
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.backLink {
+    margin-top: 20px;
+    background-color: rgb(255,255,255);
+    border-radius: 5px;
+    padding: 10px;
+}
+.postContainer {
+    flex: 1 1 calc(25% - 40px); 
+    max-width: calc(25% - 40px);
+    box-sizing: border-box;
+    margin: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    background-color: rgba(128,128,128,0.5);
+    border-radius: 10px;
+    text-align: center;
+    
+}
+
+@media screen and (max-width: 768px) {
+    .main {
+        flex-direction: column;
+        align-items: center;
+    }
+    .postContainer {
+        flex: none;
+        width: 100%;
+        max-width: 100%;
+        margin: 0 !important;
+        padding: 0 !important;
+        background-color: transparent !important;
+    }
+    body {
+        padding: 0px !important;
+        margin: 0px !important;
+    }
+    h1 {
+        font-size: 24px;
+    }
+    .postContainer h2 {
+        font-size: 18px;
+        margin-bottom: -15px;
+    }
+    .postContainer p {
+        font-size: 14px;
+    }
+    .media {
+        width: 100%;
+        height: auto;
+    }
+    img {
+        max-width: 100%;
+        max-height: 100%;
+        border-radius: 0 !important;
+    }
+}
+
+h1 {
+    color: white;
+    margin-bottom: 30px;
+}
+.postContainer h2 {
+    color: #fff;
+}
+.postContainer p {
+    color: #ddd;
+}
+.backLink img {
+    width: 30px;
+    height: 30px;
+}
+.buttonContainer button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+.buttonContainer img {
+    width: 30px;
+    height: 30px;
+}
+.postContainer img, .postContainer video {
+    border-radius: 10px;
+    object-fit: cover;
+}
+hr {
+    display: none; 
+}
+
+.media {
+    width: 100%; 
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+}

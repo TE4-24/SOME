@@ -65,7 +65,7 @@
 <body>
     <div>
     <h1>Upload a Picture or Video</h1>
-    <form action="index.php" method="post" enctype="multipart/form-data">
+    <form id="uploadForm" action="index.php" method="post" enctype="multipart/form-data">
         <label for="title">Title:</label>
         <input type="text" name="title" id="title" required><br><br>
         
@@ -77,9 +77,34 @@
         
         <input type="submit" name="submit" value="Upload">
     </form>
-
+    <progress id="progressBar" value="0" max="100" style="width: 100%; display: none;"></progress>
     <a href="view_uploads.php">View All Uploads</a>
     </div>
+    <script>
+    document.getElementById('uploadForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        var formData = new FormData(this);
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', this.action, true);
+        xhr.upload.onprogress = function(event) {
+            if (event.lengthComputable) {
+                var percentComplete = (event.loaded / event.total) * 100;
+                var progressBar = document.getElementById('progressBar');
+                progressBar.style.display = 'block';
+                progressBar.value = percentComplete;
+            }
+        };
+        xhr.onload = function() {
+            if (xhr.status === 200) {
+                alert('Upload complete!');
+                location.reload();
+            } else {
+                alert('Upload failed!');
+            }
+        };
+        xhr.send(formData);
+    });
+    </script>
     <?php
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $title = $_POST['title'];
